@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portfolio | Jamil Rubio - Técnico Informático Junior</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
+</head>
+<body>
+  <header class="hero" id="inicio">
+    <nav class="navbar">
+      <div class="logo">JR</div>
+      <button class="nav-toggle" aria-label="Abrir menú">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links">
+        <li><a href="#sobre-mi">Sobre mí</a></li>
+        <li><a href="#proyectos">Proyectos</a></li>
+        <li><a href="#experiencia">Experiencia</a></li>
+        <li><a href="#formacion">Formación</a></li>
+        <li><a href="#habilidades">Habilidades</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+      </ul>
+    </nav>
+
+    <div class="hero-content">
+      <div>
+        <p class="hero-tag">Técnico Informático Junior · SMR</p>
+        <h1>Jamil Rubio</h1>
+        <p class="hero-subtitle">
+          Estudiante de Sistemas Microinformáticos y Redes en Madrid, dando mis primeros pasos profesionales como técnico informático junior y orientado al soporte técnico de usuario.
+        </p>
+        <div class="hero-actions">
+          <a href="#proyectos" class="btn btn-primary">Ver proyectos</a>
+          <a href="#contacto" class="btn btn-outline">Contactar</a>
+        </div>
+        <p class="hero-meta">
+          Madrid (28032) · Disponibilidad: tardes y fines de semana
+        </p>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Sobre mí -->
+    <section id="sobre-mi" class="section">
+      <div class="section-header">
+        <h2>Sobre mí</h2>
+        <p>Perfil profesional</p>
+      </div>
+      <div class="section-body section-grid">
+        <div>
+          <p>
+            Soy estudiante de <strong>Sistemas Microinformáticos y Redes (SMR)</strong> en Madrid y estoy iniciando mi trayectoria como <strong>técnico informático junior</strong>, con especial interés en el soporte técnico a usuarios y el mantenimiento de equipos. 
+          </p>
+          <p>
+            Me motiva aprender continuamente sobre <strong>hardware, sistemas operativos y redes básicas</strong>, aplicando lo que estudio en proyectos prácticos y en situaciones reales de resolución de incidencias. 
+          </p>
+          <p>
+            Destaco por mi <strong>actitud responsable</strong>, capacidad para <strong>trabajar en equipo</strong> y mi <strong>atención al detalle</strong> a la hora de seguir procedimientos técnicos, documentar tareas y asegurar que los equipos queden correctamente configurados. 
+          </p>
+          <p>
+            Busco mi primer empleo en el sector IT donde pueda seguir creciendo, aportar apoyo en el día a día del departamento técnico y ganar experiencia en entornos reales de soporte y mantenimiento informático. 
+          </p>
+        </div>
+        <aside class="info-card">
+          <h3>Información rápida</h3>
+          <ul>
+            <li><span>Ubicación:</span> Madrid (28032)</li>
+            <li><span>Rol:</span> Técnico Informático Junior</li>
+            <li><span>Disponibilidad:</span> Tardes y fines de semana</li>
+            <li><span>Intereses:</span> Soporte técnico, hardware, redes, sistemas</li>
+          </ul>
+        </aside>
+      </div>
+    </section>
+
+    <!-- Proyectos -->
+    <section id="proyectos" class="section section-alt">
+      <div class="section-header">
+        <h2>Proyectos</h2>
+        <p>Prácticas y trabajos formativos</p>
+      </div>
+      <div class="section-body projects-grid" id="projects-container">
+        <!-- Proyectos cargados dinámicamente desde data.json -->
+      </div>
+    </section>
+
+    <!-- Experiencia -->
+    <section id="experiencia" class="section">
+      <div class="section-header">
+        <h2>Experiencia</h2>
+        <p>Primeros pasos profesionales</p>
+      </div>
+      <div class="section-body timeline">
+        <article class="timeline-item">
+          <h3>Técnico Informático Junior</h3>
+          <p class="timeline-meta">Primer empleo · Soporte técnico</p>
+          <ul>
+            <li>Soporte técnico básico a usuarios en incidencias de hardware y software.</li>
+            <li>Mantenimiento, montaje y configuración de equipos informáticos de sobremesa y portátiles.</li>
+            <li>Instalación y actualización de sistemas operativos y aplicaciones de uso habitual.</li>
+            <li>Resolución de incidencias comunes siguiendo procedimientos establecidos y bajo supervisión.</li>
+            <li>Aprendizaje continuo de buenas prácticas de documentación y atención al usuario.</li>
+          </ul>
+        </article>
+
+        <article class="timeline-item">
+          <h3>Ayudante de Reformas</h3>
+          <p class="timeline-meta">Javier Reformas S.L</p>
+          <ul>
+            <li>Trabajo en equipo en entornos con plazos ajustados y coordinación con otros profesionales.</li>
+            <li>Responsabilidad y puntualidad en la ejecución de tareas asignadas.</li>
+            <li>Atención al detalle para seguir indicaciones técnicas y de seguridad.</li>
+            <li>Capacidad para adaptarse a distintos tipos de trabajos y espacios de trabajo.</li>
+          </ul>
+        </article>
+
+        <article class="timeline-item">
+          <h3>Reponedor</h3>
+          <p class="timeline-meta">Carrefour</p>
+          <ul>
+            <li>Atención al cliente presencial, resolución de dudas básicas y apoyo en la búsqueda de productos.</li>
+            <li>Organización y reposición de productos siguiendo criterios de orden y accesibilidad.</li>
+            <li>Manejo de transpaleta manual y respeto por las normas de seguridad.</li>
+            <li>Desarrollo de habilidades de responsabilidad, trato con el público y trabajo por objetivos.</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <!-- Formación -->
+    <section id="formacion" class="section section-alt">
+      <div class="section-header">
+        <h2>Formación</h2>
+        <p>Estudios reglados</p>
+      </div>
+      <div class="section-body education-list">
+        <article class="education-item">
+          <h3>Grado Medio en Sistemas Microinformáticos y Redes (SMR)</h3>
+          <p class="education-meta">En curso</p>
+          <p>
+            Formación práctica en montaje y mantenimiento de equipos, instalación y configuración de sistemas operativos, redes locales, servicios básicos y soporte técnico a usuarios.
+          </p>
+        </article>
+        <article class="education-item">
+          <h3>Educación Secundaria Obligatoria (ESO)</h3>
+          <p class="education-meta">Completado</p>
+          <p>
+            Bases generales en competencias digitales, comunicación, trabajo en equipo y organización del estudio, aplicadas a la formación técnica actual.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <!-- Habilidades -->
+    <section id="habilidades" class="section">
+      <div class="section-header">
+        <h2>Habilidades</h2>
+        <p>Competencias técnicas y personales</p>
+      </div>
+      <div class="section-body skills-grid">
+        <div class="skills-card">
+          <h3>Habilidades técnicas</h3>
+          <ul>
+            <li>Soporte técnico básico a usuarios.</li>
+            <li>Instalación y configuración de sistemas operativos (Windows y Linux básico).</li>
+            <li>Montaje y mantenimiento de equipos informáticos.</li>
+            <li>Configuración básica de redes locales y dispositivos de red domésticos.</li>
+            <li>Uso de herramientas ofimáticas (Word, Excel, Google Docs).</li>
+            <li>Documentación básica de incidencias y tareas realizadas.</li>
+          </ul>
+        </div>
+        <div class="skills-card">
+          <h3>Habilidades personales</h3>
+          <ul>
+            <li>Trabajo en equipo y colaboración con otros departamentos.</li>
+            <li>Responsabilidad y compromiso con las tareas asignadas.</li>
+            <li>Puntualidad y respeto por los tiempos de entrega.</li>
+            <li>Capacidad de resolución de problemas de forma ordenada.</li>
+            <li>Ganas de aprender y mejorar continuamente.</li>
+            <li>Buena comunicación con usuarios con diferentes niveles técnicos.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contacto -->
+    <section id="contacto" class="section section-alt">
+      <div class="section-header">
+        <h2>Contacto</h2>
+        <p>¿Hablamos?</p>
+      </div>
+      <div class="section-body contact-grid">
+        <div>
+          <p>
+            Si buscas un <strong>técnico informático junior</strong> con ganas de aprender, aportar y crecer en el área de soporte técnico, estaré encantado de hablar sobre posibles oportunidades.
+          </p>
+          <ul class="contact-list">
+            <li><span>Ubicación:</span> Madrid (28032)</li>
+            <li><span>Disponibilidad:</span> Tardes y fines de semana</li>
+            <li><span>Rol objetivo:</span> Técnico Informático Junior · Soporte</li>
+          </ul>
+        </div>
+        <form class="contact-form" onsubmit="handleSubmit(event)">
+          <div class="form-row">
+            <label for="name">Nombre</label>
+            <input type="text" id="name" name="name" placeholder="Tu nombre" required />
+          </div>
+          <div class="form-row">
+            <label for="email">Correo electrónico</label>
+            <input type="email" id="email" name="email" placeholder="tu@empresa.com" required />
+          </div>
+          <div class="form-row">
+            <label for="message">Mensaje</label>
+            <textarea id="message" name="message" rows="4" placeholder="Cuéntame sobre la posición o proyecto..." required></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary full-width">Enviar mensaje</button>
+          <p id="form-status" class="form-status" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>© <span id="year"></span> Jamil Rubio · Técnico Informático Junior</p>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>
