@@ -1,61 +1,84 @@
-// Cargar año dinámico en el footer
-document.getElementById("year").textContent = new Date().getFullYear();
+// Simulación de Base de Datos en LocalStorage
+let users = JSON.parse(localStorage.getItem('users')) || [
+    { name: "Admin Maestro", email: "admin@test.com", pass: "Admin123!", role: "admin" }
+];
 
-// Menú móvil
-const navToggle = document.querySelector(".nav-toggle");
-const navLinks = document.querySelector(".nav-links");
+// Elementos del DOM
+const loginForm = document.getElementById('login-form');
+const regForm = document.getElementById('register-form');
 
-navToggle.addEventListener("click", () => {
-  navLinks.classList.toggle("open");
-});
-
-// Click en enlaces cierra menú en móvil
-navLinks.addEventListener("click", (e) => {
-  if (e.target.tagName === "A") {
-    navLinks.classList.remove("open");
-  }
-});
-
-// Cargar proyectos desde JSON
-async function loadProjects() {
-  try {
-    const res = await fetch("data.json");
-    const data = await res.json();
-
-    const container = document.getElementById("projects-container");
-    container.innerHTML = "";
-
-    data.proyectos.forEach((proyecto) => {
-      const card = document.createElement("article");
-      card.className = "project-card";
-
-      card.innerHTML = `
-        <span class="project-pill">${proyecto.tipo}</span>
-        <h3>${proyecto.nombre}</h3>
-        <p class="project-meta">${proyecto.descripcion}</p>
-        <div class="project-tags">
-          ${proyecto.tecnologias
-            .map((t) => `<span>${t}</span>`)
-            .join("")}
-        </div>
-        <p class="project-learned"><strong>Aprendizaje / objetivo:</strong> ${proyecto.aprendizaje}</p>
-      `;
-
-      container.appendChild(card);
-    });
-  } catch (error) {
-    console.error("Error cargando proyectos:", error);
-  }
+// --- FUNCIONES DE NAVEGACIÓN ---
+function showSection(id) {
+    document.querySelectorAll('.card').forEach(c => c.classList.add('hidden'));
+    document.getElementById(id).classList.remove('hidden');
 }
 
-loadProjects();
+// --- VALIDACIÓN DE CONTRASEÑA ---
+function validatePassword(pass, name) {
+    const regex = /^(?=.*[A-Z])(?=.*[!@#$%^&*])(?=.{8,})/;
+    if (!regex.test(pass)) {
+        alert("La contraseña debe tener mínimo 8 caracteres, una mayúscula y un carácter especial.");
+        return false;
+    }
+    if (pass.toLowerCase().includes(name.toLowerCase())) {
+        alert("La contraseña no puede contener tu nombre.");
+        return false;
+    }
+    return true;
+}
 
-// Manejo del formulario (simulado)
-function handleSubmit(e) {
-  e.preventDefault();
-  const status = document.getElementById("form-status");
-  status.style.color = "#38bdf8";
-  status.textContent =
-    "Gracias por tu mensaje. Tu consulta se ha registrado correctamente (simulación).";
-  e.target.reset();
+// --- REGISTRO ---
+regForm.onsubmit = (e) => {
+    e.preventDefault();
+    const name = document.getElementById('reg-name').value;
+    const email = document.getElementById('reg-email').value;
+    const pass = document.getElementById('reg-pass').value;
+    const confirm = document.getElementById('reg-pass-confirm').value;
+
+    if (users.find(u => u.email === email)) return alert("Este correo ya está registrado.");
+    if (pass !== confirm) return alert("Las contraseñas no coinciden.");
+    if (!validatePassword(pass, name)) return;
+
+    users.push({ name, email, pass, role: 'user' });
+    localStorage.setItem('users', JSON.stringify(users));
+    alert("¡Registro exitoso! Ya puedes iniciar sesión.");
+    showSection('login-section');
+};
+
+// --- LOGIN ---
+loginForm.onsubmit = (e) => {
+    e.preventDefault();
+    const email = document.getElementById('login-email').value;
+    const pass = document.getElementById('login-pass').value;
+
+    const user = users.find(u => u.email === email && u.pass === pass);
+
+    if (user) {
+        if (user.role === 'admin') {
+            loadAdminPanel();
+            showSection('admin-dashboard');
+        } else {
+            document.getElementById('user-display-name').innerText = user.name;
+            showSection('user-dashboard');
+        }
+    } else {
+        alert("Credenciales incorrectas.");
+    }
+};
+
+// --- PANEL ADMIN ---
+function loadAdminPanel() {
+    const list = document.getElementById('users-list');
+    list.innerHTML = "";
+    users.forEach(u => {
+        list.innerHTML += `<tr>
+            <td>${u.name}</td>
+            <td>${u.email}</td>
+            <td><span class="badge">${u.role}</span></td>
+        </tr>`;
+    });
+}
+
+function logout() {
+    location.reload(); // Reinicia el estado de la app
 }
